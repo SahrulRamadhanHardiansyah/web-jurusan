@@ -1,11 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
 * {
+  user-select: none;
   padding: 0;
   margin: 0;
   outline: none;
   border: none;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 img {
@@ -24,13 +29,18 @@ body {
 }
 
 nav {
+  position: sticky;
   max-width: 1200px;
-  margin: auto;
-  padding: 2rem 1rem;
+  top: 0;
+  z-index: 999;
+  padding: 1rem 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .nav-links {
@@ -63,6 +73,7 @@ nav {
 }
 
 .btn {
+  font-family: "Poppins", sans-serif;
   padding: 1rem 2rem;
   font-size: 1rem;
   color: #fff;
@@ -79,7 +90,7 @@ nav {
 .container {
   max-width: 1200px;
   margin: auto;
-  padding: 5rem 2rem;
+  padding-inline: 1rem;
 }
 
 .blur {
@@ -95,6 +106,11 @@ header {
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   gap: 2rem;
+}
+
+header.container {
+  margin-top: 0;
+  padding-top: 2rem;
 }
 
 header .content h4 {
@@ -119,6 +135,7 @@ header .content h1 span {
 
 header .content p {
   margin-bottom: 2rem;
+  font-size: 1.2rem;
   color: #ccc;
 }
 
@@ -141,16 +158,33 @@ header .image::before {
 }
 
 header .image img {
-  max-width: 600px;
+  max-width: 300px;
   margin: auto;
 }
 
+section {
+  margin-block: 4rem;
+  scroll-margin-top: 100px;
+}
+
+section.container {
+  margin-top: 12rem;
+}
+
 section .header {
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
   color: #fff;
   text-align: center;
   font-size: 2.25rem;
   font-weight: 600;
+}
+
+section .sub-header {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  color: #ccc;
+  font-size: 1.5rem;
 }
 
 .features {
@@ -166,6 +200,7 @@ section .header {
   border: 2px solid transparent;
   border-radius: 15px;
   transition: all 0.3s ease;
+  height: 100%;
 }
 
 .features .card:hover {
@@ -193,6 +228,7 @@ section .header {
 .features .card p {
   color: #ccc;
   margin-bottom: 1rem;
+  font-size: 1.1rem;
 }
 
 .features .card a {
@@ -204,23 +240,220 @@ section .header {
   color: #1e40af;
 }
 
-.sub-header {
-  max-width: 600px;
-  margin: auto;
-  text-align: center;
+/* New Karir Section Styles */
+.karir-content,
+.akademik-content,
+.prestasi-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  background-color: #222;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.karir-image,
+.akademik-image,
+.prestasi-image {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  border-radius: 15px 0 0 15px;
+  height: 100%;
+  align-items: center;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.karir-image img,
+.akademik-image img,
+.prestasi-image img {
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease;
+}
+
+.karir-image:hover img,
+.akademik-image:hover img,
+.prestasi-image:hover img {
+  transform: scale(1.05);
+}
+
+.karir-details,
+.akademik-details,
+.prestasi-details {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.karir-box,
+.akademik-box {
+  background-color: #2d2d35;
+  padding: 1.5rem;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid #1d4ed8;
+  transition: all 0.3s ease;
+}
+
+.karir-box:hover,
+.akademik-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.karir-box h3,
+.akademik-box h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.karir-box ul,
+.akademik-box ul {
   color: #ccc;
+  padding-left: 1.5rem;
+}
+
+.karir-box li,
+.akademik-box li {
+  margin-bottom: 0.5rem;
+}
+
+.about-pplg {
+  background-color: #27272a;
+  padding: 3rem;
+  border-radius: 15px;
+  color: #ccc;
+  margin-bottom: 4rem;
+  border-top: 4px solid #1d4ed8;
+}
+
+.about-pplg h3 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-pplg p {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.achievements {
+  background-color: #27272a;
+  padding: 3rem;
+  border-radius: 15px;
+  color: #ccc;
+}
+
+.achievements h3 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.achievements h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: #1d4ed8;
+  border-radius: 2px;
+}
+
+.achievements ul {
+  list-style-position: inside;
+  margin-bottom: 1.5rem;
+}
+
+.achievements li {
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+  font-size: 1.3rem;
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+.achievements li::before {
+  color: #1d4ed8;
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.skill-item {
+  background-color: #1e40af;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  background-color: #2563eb;
+}
+
+.skill-item i {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.visit-button {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  border: 2px solid #ffffff;
+  margin-left: 25rem;
+  margin-bottom: 10rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 15px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.visit-button:hover {
+  transform: scale(1.05);
 }
 
 footer {
   position: relative;
   display: grid;
-  grid-template-columns: 400px repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 2rem;
-}
-
-footer .column .logo {
-  max-width: 100px;
-  margin-bottom: 2rem;
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid #333;
 }
 
 footer .column p {
@@ -231,6 +464,7 @@ footer .column p {
 footer .column .socials {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
 }
 
@@ -249,22 +483,93 @@ footer .column .socials a:hover {
   border-color: #1d4ed8;
 }
 
-footer .column h4 {
-  color: #fff;
-  margin-bottom: 2rem;
-  font-size: 1.2rem;
-  font-weight: 500;
+footer.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 5rem;
+  color: white;
 }
 
-footer .column > a {
-  display: block;
-  color: #ccc;
+footer .contact-info,
+footer .contact-map {
+  flex: 1 1 48%;
   margin-bottom: 1rem;
+}
+
+footer .contact-info p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+footer .socials a {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+  position: relative;
   transition: all 0.3s ease;
 }
 
-footer .column > a:hover {
-  color: #1d4ed8;
+footer .socials a:hover {
+  transform: scale(1.02);
+}
+
+footer .socials a i {
+  margin-right: 10px;
+  font-size: 1.4rem;
+}
+
+.contact-map {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+@media (max-width: 1000px) {
+  .cards-container {
+    width: 95%;
+  }
+}
+
+@media (max-width: 900px) {
+  .contact-map {
+    max-width: 250px;
+  }
+
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .karir-content,
+  .akademik-content,
+  .prestasi-content {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-map {
+    max-width: 200px;
+  }
+
+  .features,
+  .skills {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (width < 900px) {
@@ -280,11 +585,23 @@ footer .column > a:hover {
   .features {
     grid-template-columns: repeat(2, 1fr);
   }
-  .pricing {
+  .skills {
     grid-template-columns: repeat(2, 1fr);
   }
-  footer {
-    grid-template-columns: 1fr 200px;
+  .karir-content,
+  .akademik-content,
+  .prestasi-content {
+    grid-template-columns: 1fr;
+  }
+  .karir-image,
+  .akademik-image,
+  .prestasi-image {
+    border-radius: 15px 15px 0 0;
+    max-height: 300px;
+  }
+  .karir-details,
+  .akademik-details {
+    padding: 1.5rem;
   }
 }
 
@@ -297,11 +614,25 @@ footer .column > a:hover {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .pricing {
+  .skills {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  footer {
-    grid-template-columns: 1fr 150px;
+  .karir-box,
+  .akademik-box {
+    padding: 1rem;
+  }
+
+  .about-pplg,
+  .achievements {
+    padding: 1.5rem;
+  }
+
+  section .header {
+    font-size: 1.8rem;
+  }
+
+  section .sub-header {
+    font-size: 1.3rem;
   }
 }

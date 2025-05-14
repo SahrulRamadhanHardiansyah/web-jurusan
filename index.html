@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>X PPLG</title>
+    <title>PPLG</title>
     <script src="https://unpkg.com/scrollreveal"></script>
   </head>
 
@@ -12,26 +12,28 @@
     <div class="container">
       <div class="glass-container">
         <nav class="navbar">
-          <div class="logo"><a href="#">Welcome Visitors!</a></div>
-          <ul class="nav-links">
-            <li class="nav-link"><a href="#">Home</a></li>
-            <li class="nav-link"><a target="_blank" href="https://github.com/Kvmen">About Me</a></li>
+          <div class="logo animate-fade-in"><a href="#">Welcome Visitors!</a></div>
+          <ul class="nav-links animate-fade-in">
+            <li class="nav-link"><a target="_blank" href="https://www.instagram.com/pplg_nesaba?igsh=bWQ1ZWIwMW0zaG1n">Instagram</a></li>
+            <li class="nav-link"><a target="_blank" href="https://www.youtube.com/@PPLGNESABA">Youtube</a></li>
+            <li class="nav-link"><a target="_blank" href="https://www.tiktok.com/@pplg_nesaba?_t=ZS-8wDFqGzdYMU&_r=1">Tiktok</a></li>
           </ul>
         </nav>
         <div class="content">
-          <div class="main">
+          <div class="main animate-fade-in">
             <h2 id="h2">Hey! 👋,<br />It's codename RPL</h2>
             <p id="p">
-              Welcome to X PPLG class website, please for those who want to our website, <br />
+              Welcome to PPLG website, please for those who want to our website, <br />
               please click the button below!
             </p>
-            <button id="btn" onclick="location.href='About.html'">Get Started</button>
+            <button class="" id="btn" onclick="location.href='About.html'">Get Started</button>
           </div>
-          <div class="image-wrapper">
+          <!-- <div class="image-wrapper">
+            <img src="/img//88c123a7-7314-44d4-8644-979f1352014c_removalai_preview.png" alt="" />
             <div class="attrebute">
               <a href=""></a>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -49,6 +51,9 @@
         origin: "left",
       });
       ScrollReveal().reveal("#p", {
+        delay: 500,
+      });
+      ScrollReveal().reveal(".animate-fade-in", {
         delay: 500,
       });
     </script>
